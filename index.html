@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fincount</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
+        user-select: none;
+        overflow-x: hidden;
+      }
+      body {
+        background-color: rgba(22, 22, 23, 0.8);
+      }
+      
+      .navbar {
+        width: 100%;
+        height: 60px;
+        background-color: rgba(51, 51, 51);
+        color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        flex-direction: row;
+        font-family: "Lato", sans-serif;
+        font-weight: 300;
+        gap: 150px;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        z-index: 999;
+        -webkit-backdrop-filter: blur(5px);
+                backdrop-filter: blur(5 px);
+      }
+      
+      .navbar-background {
+        background-color: rgba(22, 22, 23, 0.8);
+        filter: blur(5px);
+        width: 100%;
+        height: 60px;
+        position: fixed;
+        top: 0;
+        z-index: 999;
+      }
+      
+      .menu {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+      }
+      
+      .menu-link {
+        color: rgba(255, 255, 255, 0.8);
+        transition: 1s;
+      }
+      
+      .menu-link:hover {
+        color: rgb(255, 255, 255);
+      }
+      
+      .translate-menu {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+      }
+      
+      .translate-link {
+        color: rgba(255, 255, 255, 0.8);
+        transition: 1s;
+      }
+      
+      .translate-link:hover {
+        color: rgb(255, 255, 255);
+      }
+      
+      .fincount-logo {
+        width: 200px;
+        font-size: 40px;
+        cursor: pointer;
+        margin-left: 100px;
+      }
+      
+      header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .header {
+        background-color: #000;
+        height: 100vh;
+      }
+      
+      .section {
+        background-color: #fff;
+        height: 200vh;
+      }
+      
+      .home-title {
+        color: #fff;
+        font-family: "Lato", sans-serif;
+        font-weight: 900;
+        font-size: 60px;
+        text-align: center;
+        line-height: 85px;
+      }
+      
+      .hidden {
+        opacity: 0;
+        transition: all 3s;
+        transform: translateY(10%);
+      }
+      
+      .show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      </style>
+  </head>
+  <body>
+    <!-- <nav class="navbar-background"></nav> -->
+    <nav class="navbar">
+      <h1 class="fincount-logo">Fincount</h1>
+      <ul class="menu">
+        <li class="menu-link">
+          <a class="menu-link" href="index.html">Bosh Sahifa</a>
+        </li>
+        <li class="menu-link">
+          <a class="menu-link" href="UZabout.html">Haqida</a>
+        </li>
+        <li class="menu-link">
+          <a class="menu-link" href="UZservices.html">Xizmat</a>
+        </li>
+        <li class="menu-link">
+          <a class="menu-link" href="UZprices.html">Narxlar</a>
+        </li>
+        <li class="menu-link">
+          <a class="menu-link" href="UZcontact.html">Bog'lanish</a>
+        </li>
+      </ul>
+      <ul class="translate-menu">
+        <li class="translate-link">
+          <a href="index.html" class="translate-link">Uzbekistan</a>
+        </li>
+        <li class="translate-link">
+          <a href="RUhome.html" class="translate-link">Russia</a>
+        </li>
+        <li class="translate-link">
+          <a href="ENGhome.html" class="translate-link">English</a>
+        </li>
+      </ul>
+    </nav>
+    <header class="header">
+      <h1 class="home-title hidden">
+        Fincountga <br />
+        Xush Kelibsiz!
+      </h1>
+    </header>
+
+    <section class="section">
+      <h1 class="section-title hidden">MUTAXASSISLAR XIZMATI</h1>
+      <p class="section-desc hidden">
+        BUXGALTERIYA HISOBI VA BUXGALTERIYA HISOBINI AUTSORSING FOYDALANISHNING
+        BA'ZI FOYDALARI:
+      </p>
+    </section>
+
+    <script src="index.js"></script>
+  </body>
+</html>

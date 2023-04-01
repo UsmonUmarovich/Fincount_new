@@ -8,7 +8,7 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
       @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
-      
+
       * {
         margin: 0;
         padding: 0;
@@ -18,14 +18,30 @@
         user-select: none;
         overflow-x: hidden;
       }
+
+      .container-90 {
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      .container-80 {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .container-75 {
+        width: 75%;
+        margin: 0 auto;
+      }
+
       body {
         background-color: rgba(22, 22, 23, 0.8);
       }
-      
+
       .navbar {
         width: 100%;
         height: 60px;
-        background-color: rgba(51, 51, 51);
+        background-color: rgba(51, 51, 51, 0.8);
         color: rgba(255, 255, 255, 0.8);
         display: flex;
         flex-direction: row;
@@ -36,73 +52,73 @@
         position: fixed;
         top: 0;
         z-index: 999;
-        -webkit-backdrop-filter: blur(5px);
-                backdrop-filter: blur(5 px);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        backdrop-filter: blur(20px) saturate(180%);
       }
-      
-      .navbar-background {
-        background-color: rgba(22, 22, 23, 0.8);
-        filter: blur(5px);
-        width: 100%;
-        height: 60px;
-        position: fixed;
-        top: 0;
-        z-index: 999;
+
+      @supports (
+        (-webkit-backdrop-filter: saturate(180%) blur(20px)) or
+          (backdrop-filter: saturate(180%) blur(20px))
+      ) {
+        .navbar {
+          background-color: rgba(51, 51, 51, 0.8);
+          backdrop-filter: blur(20px) saturate(180%);
+        }
       }
-      
+
       .menu {
         display: flex;
         flex-direction: row;
         gap: 30px;
       }
-      
+
       .menu-link {
         color: rgba(255, 255, 255, 0.8);
         transition: 1s;
       }
-      
+
       .menu-link:hover {
         color: rgb(255, 255, 255);
       }
-      
+
       .translate-menu {
         display: flex;
         flex-direction: row;
         gap: 20px;
       }
-      
+
       .translate-link {
         color: rgba(255, 255, 255, 0.8);
         transition: 1s;
       }
-      
+
       .translate-link:hover {
         color: rgb(255, 255, 255);
       }
-      
+
       .fincount-logo {
         width: 200px;
         font-size: 40px;
         cursor: pointer;
         margin-left: 100px;
       }
-      
+
       header {
         display: flex;
         justify-content: center;
         align-items: center;
       }
-      
+
       .header {
         background-color: #000;
         height: 100vh;
       }
-      
+
       .section {
         background-color: #fff;
-        height: 200vh;
+        height: 260vh;
       }
-      
+
       .home-title {
         color: #fff;
         font-family: "Lato", sans-serif;
@@ -111,22 +127,115 @@
         text-align: center;
         line-height: 85px;
       }
-      
+
       .hidden {
         opacity: 0;
         transition: all 3s;
         transform: translateY(10%);
       }
-      
+
       .show {
         opacity: 1;
         transform: translateY(0);
       }
 
-      </style>
+      .section-about {
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        text-align: center;
+        margin-top: 100px;
+        font-family: "Lato", sans-serif;
+        margin-bottom: 200px;
+      }
+
+      .section-title {
+        font-size: 50px;
+      }
+
+      .home-section-about-1 {
+        font-family: "Lato", sans-serif;
+        margin-left: 70%;
+        width: 30%;
+        margin-bottom: 200px;
+        letter-spacing: 1px;
+        text-align: center;
+      }
+
+      .home-section-about-1-title {
+        font-size: 40px;
+        font-weight: 600;
+      }
+
+      .home-section-about-1-desc {
+        line-height: 30px;
+      }
+
+      .home-section-about-2 {
+        font-family: "Lato", sans-serif;
+        width: 30%;
+        letter-spacing: 1px;
+        text-align: center;
+      }
+
+      .home-section-about-2-title {
+        font-size: 40px;
+        font-weight: 600;
+      }
+
+      .home-section-about-2-desc {
+        line-height: 30px;
+      }
+
+      .footer {
+        height: 400px;
+        width: 100%;
+        background-color: rgba(51, 51, 51, 0.8);
+        font-family: "Lato", sans-serif;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .footer-title {
+        text-align: center;
+        font-size: 55px;
+        font-weight: 600;
+      }
+
+      .footer-desc {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .footer-menu{
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+        gap: 5px;
+      }
+
+      .footer-directs{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+      }
+
+      .footer-direct-old{
+        display: flex;
+        place-items: center;
+      }
+      
+      .fincount-old{
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: underline;
+      }
+
+      .footer-menu-link{
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
-    <!-- <nav class="navbar-background"></nav> -->
     <nav class="navbar">
       <h1 class="fincount-logo">Fincount</h1>
       <ul class="menu">
@@ -166,12 +275,96 @@
     </header>
 
     <section class="section">
-      <h1 class="section-title hidden">MUTAXASSISLAR XIZMATI</h1>
-      <p class="section-desc hidden">
-        BUXGALTERIYA HISOBI VA BUXGALTERIYA HISOBINI AUTSORSING FOYDALANISHNING
-        BA'ZI FOYDALARI:
-      </p>
+      <div class="container-90">
+        <div class="section-about hidden">
+          <h1 class="section-title">MUTAXASSISLAR XIZMATI</h1>
+          <p class="section-desc">
+            BUXGALTERIYA HISOBI VA BUXGALTERIYA HISOBINI AUTSORSING
+            FOYDALANISHNING BA'ZI FOYDALARI:
+          </p>
+        </div>
+        <div class="home-section">
+          <div class="home-section-about-1 hidden">
+            <div class="home-section-about-1-title">Xarajatlarni Saqlang</div>
+            <div class="home-section-about-1-desc">
+              Autsorsing sizga kerak bo'lganda turli darajadagi malakali
+              mutaxassislarning vaqtini sotib olish imkonini beradi va shu bilan
+              faqat ehtiyoj asosida buxgalterdan usta buxgaltergacha bir nechta
+              ko'nikmalarga ega bo'ladi. Bu sizning ixtiyoringizda to'liq
+              xodimlar bilan jihozlangan buxgalteriya bo'limiga ega bo'lish
+              imkonini beradi.
+            </div>
+          </div>
+          <div class="home-section-about-2 hidden">
+            <div class="home-section-about-2-title">
+              Asosiy Biznesingizga E'tibor bering
+            </div>
+            <div class="home-section-about-2-desc">
+              Sizning biznesingizni sotish va boshqarishga e'tibor qaratish uzoq
+              muddatda savdo va foydani oshiradi. Buni amalga oshirishda sizga
+              yordam berish uchun vaqtingizni qaytarib beramiz.
+            </div>
+          </div>
+          <div class="home-section-about-1 hidden">
+            <div class="home-section-about-1-title">Xizmat Davomiyligi</div>
+            <div class="home-section-about-1-desc">
+              Autsorsing shuningdek, xizmat ko'rsatishning uzluksizligini
+              ta'minlaydi, bu kichik biznesda muhim ahamiyatga ega, bu erda bir
+              kishining ishlashiga tayanadi: sizning buxgalteringiz.
+            </div>
+          </div>
+          <div class="home-section-about-2 hidden">
+            <div class="home-section-about-2-title">Maslahat</div>
+            <div class="home-section-about-2-desc">
+              Fincount Accounting faqat malakali va bilimli xodimlarni ish bilan
+              ta'minlaydi va kompaniya sizga bebaho maslahatlar bera oladigan
+              malakali mutaxassislarga tegishli va boshqariladi.
+            </div>
+          </div>
+          <div class="home-section-about-1 hidden">
+            <div class="home-section-about-1-title">Bilim</div>
+            <div class="home-section-about-1-desc">
+              Bilim - bu kuch va barmog'ingiz sizning biznesingizning zarbasiga
+              ega bo'lish sizning kompaniyangiz kelajagi bo'yicha oqilona
+              qarorlar qabul qilish imkonini beradi. Biz sizga biznes
+              qarorlarini asosli qabul qilish imkonini beruvchi real vaqt
+              rejimiga yaqin boshqaruv va moliyaviy hisobotlarni taqdim etamiz.
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+    <footer class="footer">
+      <div class="container-75">
+        <h1 class="footer-title">Fincount</h1>
+
+        <div class="footer-directs">
+          <div class="footer-direct-new">
+            <h1 class="footer-direct">To'g'ridan-to'g'ri linklar:</h1>
+            <div class="footer-menu">
+              <a class="footer-menu-link" href="index.html">Bosh Sahifa</a>
+              <a class="footer-menu-link" href="UZabout.html">Haqida</a>
+              <a class="footer-menu-link" href="UZservices.html">Xizmatlar</a>
+              <a class="footer-menu-link" href="UZprices.html">Narxlar</a>
+              <a class="footer-menu-link" href="UZcontact.html">Bog'lanish</a>
+            </div>
+          </div>
+          <div class="footer-direct-old">
+            <p class="footer-direct-old-title">
+              Bizning eski web-saytimizga tashrif buyurishni hohlaysizmi? Unda
+              buni ustiga bosing:
+              <a class="fincount-old" href="FINCOUNT (with HTML)/index.html">Fincount</a>.  Agar Eski
+              web-saytizdan yana yangi web-saytimizga kirmoqchi bo'lsangiz eng
+              pastga tushib "Fincount Yangi"ni ustiga bosishingiz kifoya!
+            </p>
+          </div>
+        </div>
+        <p class="footer-desc">
+          Designed by <span style="font-weight: 600">Usmon</span> for
+          <span style="font-weight: 600">Umar Ollaberganov</span>
+        </p>
+      </div>
+    </footer>
 
     <script src="index.js"></script>
   </body>

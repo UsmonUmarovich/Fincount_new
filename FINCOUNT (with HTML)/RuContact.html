@@ -1,0 +1,468 @@
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.27.0/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://kit.fontawesome.com/3c0fcfdc3f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="shortcut icon" href="FinCount.jpg" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="FinCount.jpg" />
+    <title>FINCOUNT</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        user-select: none;
+      }
+
+      html,
+      body {
+        width: 100%;
+        overflow-x: hidden;
+      }
+
+      .fincount-fin {
+        color: blue;
+        font-weight: 600;
+        margin-left: -60px;
+      }
+
+      .fincount-count {
+        color: black;
+        font-weight: 200;
+      }
+
+      .navbar {
+        height: 100px;
+        box-shadow: 3px 5px 10px rgb(194, 194, 194);
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .fincount-logo {
+        font-size: 50px;
+      }
+
+      .menu {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+      }
+
+      .menu-link {
+        border-radius: 10px;
+      }
+
+      .menu-link:active {
+        transform: scale(0.9);
+        background-color: rgb(240, 240, 240);
+        color: rgb(157, 157, 157);
+      }
+
+      .menu-link.active {
+        background-color: rgb(240, 240, 240);
+        color: black;
+      }
+
+      .home-footer {
+        background-color: black;
+        width: 100%;
+        height: 70px;
+        margin-top: 70%;
+      }
+
+      .menu-link2 {
+        border-radius: 10px;
+        color: white;
+      }
+
+      .menu2 {
+        display: flex;
+        gap: 20px;
+        margin: 0 auto;
+        width: 70%;
+      }
+
+      .home-footer_title {
+        color: white;
+        margin: 0 auto;
+        width: 70%;
+      }
+
+      .contact-menu_img {
+        position: absolute;
+      }
+
+      .contact-menu_title {
+        position: absolute;
+        color: white;
+        font-family: "Oswald", sans-serif;
+        letter-spacing: 7px;
+        font-size: 80px;
+        font-weight: 600;
+        margin-left: 60px;
+        margin-top: 70px;
+      }
+
+      .contact-img {
+        position: absolute;
+        top: 600px;
+        left: 1000px;
+        width: 500px;
+        height: 300px;
+        margin-left: -100px;
+        border: 1px solid black;
+      }
+
+      .contact-about {
+        position: absolute;
+        top: 500px;
+        margin-left: 100px;
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
+        line-height: 50px;
+      }
+
+      .media-menu,
+      .cancel {
+        font-size: 25px;
+        cursor: pointer;
+        display: none;
+        margin-right: 30px;
+      }
+
+      @media screen and (max-width: 1400px) {
+        .contact-img {
+          margin-left: -150px;
+        }
+      }
+
+      @media screen and (max-width: 1365px) {
+        .contact-img {
+          margin-left: -200px;
+        }
+
+        .fincount-logo {
+          font-size: 45px;
+          margin-left: 50px;
+        }
+      }
+
+      @media screen and (max-width: 1320px) {
+        .contact-img {
+          width: 450px;
+          height: 250px;
+          margin-left: -250px;
+          margin-top: 100px;
+        }
+      }
+
+      @media screen and (max-width: 1270px) {
+        .contact-img {
+          display: none;
+        }
+
+        .contact-about {
+          display: flex;
+          flex-direction: row;
+          gap: 50px;
+        }
+      }
+
+      @media screen and (max-width: 1120px) {
+        .home-footer {
+          margin-top: 80%;
+        }
+      }
+
+      @media screen and (max-width: 1010px) {
+        .contact-menu_title {
+          font-size: 50px;
+        }
+      }
+
+      @media screen and (max-width: 975px) {
+        .contact-about {
+          flex-direction: column;
+        }
+
+        .home-footer {
+          margin-top: 110%;
+        }
+      }
+
+      @media screen and (max-width: 900px) {
+        .home-footer {
+          margin-top: 130%;
+        }
+      }
+
+      @media screen and (max-width: 850px) {
+        .media-menu {
+          display: block;
+        }
+
+        .menu {
+          position: absolute;
+          height: 0;
+          top: 20px;
+          left: 0;
+          right: 0;
+          background-color: white;
+          transition: 0.5s;
+          display: flex;
+          width: 100%;
+          margin: 80px auto;
+          align-content: center;
+          flex-direction: column;
+          font-size: 15px;
+          opacity: 0;
+        }
+
+        .menu.active {
+          opacity: 1;
+          height: 300px;
+          box-shadow: 3px 10px 10px rgb(194, 194, 194);
+        }
+
+        .menu-link {
+          margin-bottom: 5px;
+        }
+      }
+
+      @media screen and (max-width: 770px) {
+        .home-footer {
+          margin-top: 150%;
+        }
+      }
+
+      @media screen and (max-width: 700px) {
+        .home-footer {
+          margin-top: 170%;
+        }
+
+        .contact-menu_title {
+          font-size: 35px;
+          letter-spacing: 4px;
+        }
+      }
+
+      @media screen and (max-width: 650px) {
+        .contact-about {
+          margin-top: -100px;
+          margin-left: 50px;
+        }
+      }
+
+      @media screen and (max-width: 570px) {
+        .contact-about {
+          margin-top: -150px;
+        }
+
+        .contact-menu_title {
+          margin-top: 40px;
+        }
+      }
+
+      @media screen and (max-width: 535px) {
+        .contact-about {
+          font-size: 12px;
+        }
+
+        .home-footer {
+          margin-top: 200%;
+        }
+
+        .fincount-logo {
+          font-size: 30px;
+        }
+      }
+
+      @media screen and (max-width: 485px) {
+        .contact-menu_title {
+          font-size: 25px;
+        }
+
+        .menu2,
+        .home-footer_title {
+          font-size: 12px;
+        }
+      }
+
+      @media screen and (max-width: 444px) {
+        .home-footer {
+          text-align: center;
+          margin-top: 250%;
+        }
+      }
+
+      @media screen and (max-width: 420px) {
+        .contact-menu_img {
+          height: 150px;
+        }
+      }
+
+      @media screen and (max-width: 400px) {
+        .menu2 {
+          font-size: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      style="position: sticky; top: 0; z-index: 9999; background: #fff"
+      class="navbar w-full flex justify-around"
+    >
+      <h1 class="fincount-logo">
+        <span class="fincount-fin">FIN</span>
+        <span class="fincount-count">COUNT</span>
+      </h1>
+      <ul class="menu">
+        <li>
+          <a class="menu-link" href="./RuHome.html"> Дом </a>
+        </li>
+        <li class="menu-link">
+          <a class="menu-link" href="./RuAbout.html"> О нас </a>
+        </li>
+        <li class="menu-link">
+          <a class="menu-link" href="./RuServices.html"> Услуги </a>
+        </li>
+        <li class="menu-link">
+          <a class="menu-link" href="./RuPricing.html"> Цены </a>
+        </li>
+        <li class="menu-link">
+          <a class="menu-link active" href="./RuContact.html"> Контакт </a>
+        </li>
+      </ul>
+      <ul>
+        <li><a href="./UzContact.html">UZ</a></li>
+        /
+        <li><a href="./EnContact.html">EN</a></li>
+        /
+        <li><a href="./RuContact.html">RU</a></li>
+      </ul>
+      <label class="check">
+        <i class="fas fa-bars media-menu"></i>
+        <i class="fas fa-times cancel"></i>
+      </label>
+    </nav>
+      <div class="contact">
+        <div class="contact-menu">
+          <img
+            class="contact-menu_img"
+            src="https://www.retailsecsol.com/wp-content/uploads/2018/04/homeslider.OURSERVICES-1-1980x500.png"
+            alt=""
+          />
+          <h1 class="contact-menu_title">СВЯЖИТЕСЬ С НАМИ</h1>
+        </div>
+        <div>
+          <div class="contact-about">
+            <div>
+              <div class="contact-info">
+                <h1 style="font-family: Oswald, sans-serif; font-size: 40px">
+                  КОНТАКТ
+                </h1>
+                <p style="color: rgba(100, 100, 100, 0.678)">
+                  Свяжитесь с нашей знающей и опытной командой, чтобы обсудить
+                  ваши потребности:
+                </p>
+              </div>
+              <div class="telephone">
+                <h1
+                  style="
+                    font-family: sans-serif;
+                    font-size: 20px;
+                    color: rgba(0, 0, 0, 0.678);
+                  "
+                >
+                  ТЕЛ:
+                </h1>
+                <p style="color: rgba(100, 100, 100, 0.678)">
+                  +999 99 771 33 11
+                </p>
+                <p style="color: rgba(100, 100, 100, 0.678)">
+                  +998 97 792 33 11
+                </p>
+              </div>
+            </div>
+            <div>
+              <div class="email">
+                <h1
+                  style="
+                    font-family: sans-serif;
+                    font-size: 20px;
+                    color: rgba(0, 0, 0, 0.678);
+                  "
+                >
+                  ЭЛ. АДРЕС:
+                </h1>
+                <p style="color: blue">umar.ollaberganov@mail.ru</p>
+              </div>
+              <div class="address">
+                <h1
+                  style="
+                    font-family: sans-serif;
+                    font-size: 20px;
+                    color: rgba(0, 0, 0, 0.678);
+                  "
+                >
+                  АДРЕС
+                </h1>
+                <ul>
+                  <li>ХОРЕЗМСКАЯ ОБЛАСТЬ</li>
+                  <li>ГОРОД УРГАНЧ</li>
+                  <li>ИСТИКЛОЛ 18</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <img
+            class="contact-img"
+            src="https://static-maps.yandex.ru/1.x/?l=map&lang=ru-Ru&size=370,175&z=17&ll=60.607625,41.559994&pt=60.607625,41.559994,round"
+            alt=""
+          />
+        </div>
+      </div>
+    <footer class="home-footer">
+      <ul class="menu2">
+        <li>
+          <a class="menu-link2" href="./RuHome.html"> Дом </a>
+        </li>
+        <li>
+          <a class="menu-link2" href="./RuAbout.html"> О нас </a>
+        </li>
+        <li>
+          <a class="menu-link2" href="./RuServices.html"> Услуги </a>
+        </li>
+        <li>
+          <a class="menu-link2" href="./RuPricing.html"> Цены </a>
+        </li>
+        <li>
+          <a class="menu-link2" href="./RuContact.html"> Контакт </a>
+        </li>
+      </ul>
+      <h1 class="home-footer_title">Fincount © Copyright 2022</h1>
+    </footer>
+    <script>
+      check = document.querySelector(".check");
+      check.onclick = function () {
+        menu = document.querySelector(".menu");
+        menu.classList.toggle("active");
+      };
+    </script>
+  </body>
+</html>

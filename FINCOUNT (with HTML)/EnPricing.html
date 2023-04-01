@@ -1,0 +1,339 @@
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.27.0/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://kit.fontawesome.com/3c0fcfdc3f.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="shortcut icon" href="FinCount.jpg" type="image/x-icon">
+  <link rel="apple-touch-icon" href="FinCount.jpg">
+  <title>FINCOUNT</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .fincount-fin {
+      color: blue;
+      font-weight: 600;
+      margin-left: -60px;
+    }
+
+    .fincount-count {
+      color: black;
+      font-weight: 200;
+    }
+
+    .navbar {
+      height: 100px;
+      box-shadow: 3px 5px 10px rgb(194, 194, 194);
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .fincount-logo {
+      font-size: 50px;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    .menu-link {
+      border-radius: 10px;
+    }
+
+    .menu-link:active {
+      transform: scale(0.9);
+      background-color: rgb(240, 240, 240);
+      color: rgb(157, 157, 157);
+    }
+
+    .menu-link.active {
+      background-color: rgb(240, 240, 240);
+      color: black;
+    }
+
+    .pricing {
+      display: flex;
+    }
+
+    .pricing-title {
+      letter-spacing: 5px;
+      font-size: 70px;
+      font-weight: 200;
+      text-align: center;
+    }
+
+    .pricing-background {
+      background-color: blue;
+      height: 1080px;
+    }
+
+    .pricing-desc {
+      color: rgba(255, 255, 255, 0.683);
+      width: 60%;
+      margin: 0 auto;
+      line-height: 35px;
+      margin-bottom: 50px;
+    }
+
+    .pricing-menu {
+      display: flex;
+      flex-direction: column;
+      width: 35%;
+      margin: 0 auto;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .pricing-menu_link {
+      border: 2px solid rgba(255, 255, 255, 0.683);
+      padding: 30px 30px;
+      color: rgba(255, 255, 255, 0.683);
+      transition: 300ms;
+      border-radius: 20px;
+    }
+
+    .pricing-menu_link:hover {
+      background-color: rgba(255, 255, 255, 0.787);
+      color: inherit;
+      transform: scale(1.1);
+    }
+
+    .media-menu,
+    .cancel {
+      font-size: 25px;
+      cursor: pointer;
+      display: none;
+      margin-right: 30px;
+    }
+
+    @media screen and (max-width: 1350px){
+      .fincount-logo{
+        margin-left: 50px;
+      }
+
+      .pricing-desc{
+        line-height: 30px;
+        text-align: center;
+      }
+
+      .pricing-title{
+        font-size: 60px;
+        margin: 0 20px;
+      }
+    }
+
+    @media screen and (max-width: 1280px) {
+
+      .pricing-desc{
+        width: 80%;
+      }
+    }
+
+    @media screen and (max-width: 1240px) {
+      .pricing-title{
+        font-size: 50px;
+      }
+    }
+
+    @media screen and (max-width: 1200px){
+      .pricing-about{
+        z-index: 99;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 54%;
+      }
+
+      .pricing-img{
+        height: 1230px;
+        overflow-x: hidden;
+        position: absolute;
+      }
+    }
+
+    @media screen and (max-width: 850px) {
+      .media-menu {
+        display: block;
+      }
+
+      .menu {
+        position: absolute;
+        height: 0;
+        top: 20px;
+        left: 0;
+        right: 0;
+        background-color: white;
+        transition: 0.5s;
+        display: flex;
+        width: 100%;
+        margin: 80px auto;
+        align-content: center;
+        flex-direction: column;
+        font-size: 15px;
+        opacity: 0;
+      }
+
+      .menu.active {
+        opacity: 1;
+        height: 300px;
+        box-shadow: 3px 10px 10px rgb(194, 194, 194);
+      }
+
+      .menu-link {
+        margin-bottom: 5px;
+      }
+
+      .pricing-img{
+        width: 0px;
+      }
+
+      .pricing-about{
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .pricing-title{
+        font-size: 60px;
+      }
+
+      .pricing-desc{
+        width: 60%;
+        line-height: 40px;
+        margin: 50px auto;
+      }
+    }
+
+    @media screen and (max-width: 650px){
+      .pricing-desc{
+        width: 70%;
+      }
+
+      .fincount-logo{
+        font-size: 40px;
+      }
+    }
+
+    @media screen and (max-width: 555px){
+      .pricing-menu{
+        gap: 20px;
+      }
+    }
+
+    @media screen and (max-width: 510px) {
+      .pricing-desc{
+        line-height: 30px;
+      }
+    }
+
+    @media screen and (max-width: 445px) {
+      .pricing-title{
+        font-size: 50px;
+      }
+    }
+
+    @media screen and (max-width: 420px){
+      .pricing-menu{
+        width: 60%;
+      }
+    }
+
+    @media screen and (max-width: 400px){
+      .pricing-menu{
+        gap: 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav style="position: sticky; top: 0; z-index: 9999; background: #fff" class="navbar w-full flex justify-around">
+    <h1 class="fincount-logo">
+      <span class="fincount-fin">FIN</span>
+      <span class="fincount-count">COUNT</span>
+    </h1>
+    <ul class="menu">
+      <li>
+        <a class="menu-link" href="./EnHome.html"> Home </a>
+      </li>
+      <li class="menu-link">
+        <a class="menu-link" href="./EnAbout.html"> About Us </a>
+      </li>
+      <li class="menu-link">
+        <a class="menu-link" href="./EnServices.html"> Services </a>
+      </li>
+      <li class="menu-link">
+        <a class="menu-link active" href="./EnPricing.html"> Pricing </a>
+      </li>
+      <li class="menu-link">
+        <a class="menu-link" href="./EnContact.html"> Contact </a>
+      </li>
+    </ul>
+    <ul>
+      <li><a href="./UzPricing.html">UZ</a></li>
+      /
+      <li><a href="./EnPricing.html">EN</a></li>
+      /
+      <li><a href="./RuPricing.html">RU</a></li>
+    </ul>
+    <label class="check">
+      <i class="fas fa-bars media-menu"></i>
+      <i class="fas fa-times cancel"></i>
+    </label>
+  </nav>
+  <div>
+    <div class="pricing">
+      <img class="pricing-img"
+        src="http://talk.ronenbekerman.com/uploads/default/original/1X/171eba20fb9753234f927d84de06fccfc603a41b.jpg"
+        alt="" />
+      <div class="pricing-about" style="background-color: #fff">
+        <h1 class="pricing-title">OUR PRICES</h1>
+        <div class="pricing-background">
+          <p class="pricing-desc">
+            Our one-stop expertise, that covers everything financial, from
+            data capture and annual financial statements to business analysis
+            and advisory, will save you time and money. Why employ a full-time
+            bookkeeper and an accountant when you can outsource these services
+            at a fraction of the cost? We have basic service packages, but our
+            services can be tailored to your needs. With the use of
+            technology, a process can be designed to be efficient and
+            cost-effective, while providing the latest management information.
+          </p>
+          <div class="pricing-menu">
+            <a class="pricing-menu_link" href="./EnHome.html"> HOME </a>
+            <a class="pricing-menu_link" href="./EnAbout.html"> ABOUT </a>
+            <a class="pricing-menu_link" href="./EnServices.html"> SERVICES </a>
+            <a class="pricing-menu_link" href="./EnContact.html"> CONTACT </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    check = document.querySelector(".check");
+    check.onclick = function () {
+      menu = document.querySelector(".menu");
+      menu.classList.toggle("active");
+    };
+  </script>
+</body>
+
+</html>

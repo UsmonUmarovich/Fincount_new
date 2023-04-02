@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/caffedb555.js" crossorigin="anonymous"></script>
     <title>Fincount</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
@@ -16,7 +17,6 @@
         list-style: none;
         text-decoration: none;
         user-select: none;
-        overflow-x: hidden;
       }
 
       .container-90 {
@@ -47,13 +47,15 @@
         flex-direction: row;
         font-family: "Lato", sans-serif;
         font-weight: 300;
-        gap: 150px;
+        gap: 100px;
+        text-align: center;
         align-items: center;
         position: fixed;
         top: 0;
         z-index: 999;
         -webkit-backdrop-filter: blur(20px) saturate(180%);
         backdrop-filter: blur(20px) saturate(180%);
+        box-shadow: 0px 3px 30px black;
       }
 
       @supports (
@@ -84,12 +86,32 @@
       .translate-menu {
         display: flex;
         flex-direction: row;
-        gap: 20px;
+        font-size: 15px;
+        position: absolute;
+        display: none;
+        flex-direction: column;
+        background-color: rgba(22, 22, 23, 0.8);
+        transition: all 0.5s;
+      }
+
+      .translate-menu-icon {
+        font-size: 35px;
+        cursor: pointer;
+        transition: all 0.5s;
+        color: rgba(255, 255, 255, 0.8);
+
+      }
+
+      .translate-menu-icon:hover > .translate-menu{
+        display: flex;
+        color: #fff;
       }
 
       .translate-link {
         color: rgba(255, 255, 255, 0.8);
         transition: 1s;
+        border-top: 1px solid #000;
+        padding: 10px;
       }
 
       .translate-link:hover {
@@ -206,32 +228,72 @@
         margin-top: 20px;
       }
 
-      .footer-menu{
+      .footer-menu {
         display: flex;
         flex-direction: column;
         margin-top: 15px;
         gap: 5px;
       }
 
-      .footer-directs{
+      .footer-directs {
         display: flex;
         flex-direction: column;
         gap: 50px;
       }
 
-      .footer-direct-old{
+      .footer-direct-old {
         display: flex;
         place-items: center;
       }
-      
-      .fincount-old{
+
+      .fincount-old {
         color: rgba(255, 255, 255, 0.8);
         text-decoration: underline;
       }
 
-      .footer-menu-link{
+      .footer-menu-link {
         color: rgba(255, 255, 255, 0.6);
         text-decoration: underline;
+      }
+
+      @media screen and (max-width: 1290px) {
+        .section {
+          height: 270vh;
+        }
+      }
+
+      @media screen and (max-width: 1240px) {
+        .navbar {
+          gap: 100px;
+        }
+      }
+
+      @media screen and (max-width: 1150px) {
+        .navbar {
+          gap: 80px;
+        }
+      }
+
+      @media screen and (max-width: 1130px) {
+        .section {
+          height: 280vh;
+        }
+      }
+
+      @media screen and (max-width: 1110px) {
+        .navbar {
+          gap: 70px;
+        }
+      }
+
+      @media screen and (max-width: 1080px) {
+        .section {
+          height: 300vh;
+        }
+
+        .navbar {
+          gap: 50px;
+        }
       }
     </style>
   </head>
@@ -255,17 +317,20 @@
           <a class="menu-link" href="UZcontact.html">Bog'lanish</a>
         </li>
       </ul>
-      <ul class="translate-menu">
-        <li class="translate-link">
-          <a href="index.html" class="translate-link">Uzbekistan</a>
-        </li>
-        <li class="translate-link">
-          <a href="RUhome.html" class="translate-link">Russia</a>
-        </li>
-        <li class="translate-link">
-          <a href="ENGhome.html" class="translate-link">English</a>
-        </li>
-      </ul>
+      <label class="translate-menu-icon">
+        <i class="fa-solid fa-language"></i>
+        <ul class="translate-menu">
+          <li class="translate-link">
+            <a href="index.html" class="translate-link">Uzbekistan</a>
+          </li>
+          <li class="translate-link">
+            <a href="RUhome.html" class="translate-link">Russia</a>
+          </li>
+          <li class="translate-link">
+            <a href="ENGhome.html" class="translate-link">English</a>
+          </li>
+        </ul>
+      </label>
     </nav>
     <header class="header">
       <h1 class="home-title hidden">
@@ -353,9 +418,11 @@
             <p class="footer-direct-old-title">
               Bizning eski web-saytimizga tashrif buyurishni hohlaysizmi? Unda
               buni ustiga bosing:
-              <a class="fincount-old" href="FINCOUNT (with HTML)/index.html">Fincount</a>.  Agar Eski
-              web-saytizdan yana yangi web-saytimizga kirmoqchi bo'lsangiz eng
-              pastga tushib "Fincount Yangi"ni ustiga bosishingiz kifoya!
+              <a class="fincount-old" href="FINCOUNT (with HTML)/index.html"
+                >Fincount</a
+              >.  Agar Eski web-saytizdan yana yangi web-saytimizga kirmoqchi
+              bo'lsangiz eng pastga tushib "Fincount Yangi"ni ustiga bosishingiz
+              kifoya!
             </p>
           </div>
         </div>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/caffedb555.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Добро пожаловать в Fincount</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
+        user-select: none;
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+
+      .blur.active {
+        transition: all 800ms;
+        filter: blur(5px);
+      }
+
+      .container-90 {
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      .container-80 {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .navbar {
+        width: 100%;
+        height: 60px;
+        background-color: rgba(51, 51, 51, 0.8);
+        color: rgba(255, 255, 255, 0.8);
+        font-family: "Lato", sans-serif;
+        font-weight: 300;
+        box-shadow: 0px 3px 30px black;
+        /* Sticky navbar start */
+        position: fixed;
+        top: 0;
+        z-index: 999;
+        /* Sticky navbar end */
+
+        /* Like glass navbar start*/
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        backdrop-filter: blur(20px) saturate(180%);
+        /* Like glass navbar end*/
+      }
+
+      .navbar-container {
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+      }
+
+      .menu {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        /* justify-content: space-between; */
+      }
+
+      .menu-link {
+        color: rgba(255, 255, 255, 0.8);
+        transition: 1s;
+      }
+
+      .menu-link:hover {
+        color: rgb(255, 255, 255);
+      }
+
+      .menu-link.active {
+        text-decoration: underline;
+      }
+
+      .menu-icon {
+        font-size: 30px;
+      }
+
+      .icons {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .translate-menu {
+        display: flex;
+        flex-direction: row;
+        font-size: 15px;
+        position: absolute;
+        display: none;
+        flex-direction: column;
+        background-color: rgba(51, 51, 51, 0.8);
+        transition: all 0.5s;
+      }
+
+      .translate-menu-icon {
+        font-size: 35px;
+        cursor: pointer;
+        transition: all 0.5s;
+        color: rgba(255, 255, 255, 0.8);
+        margin-right: 60px;
+      }
+
+      .translate-menu-icon.active > .translate-menu {
+        display: flex;
+        color: #fff;
+      }
+
+      .translate-link {
+        color: rgba(255, 255, 255, 0.8);
+        transition: 1s;
+        border-top: 1px solid #000;
+        padding: 10px;
+      }
+
+      .translate-link:hover {
+        color: rgb(255, 255, 255);
+      }
+
+      .translate-link.active {
+        text-decoration: underline;
+      }
+
+      .fincount-logo {
+        margin-left: 40px;
+        font-size: 40px;
+        cursor: pointer;
+      }
+
+      header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .header {
+        background-color: #000;
+        height: 100vh;
+      }
+
+      .section {
+        background-color: #fff;
+      }
+
+      .home-title {
+        color: #fff;
+        font-family: "Lato", sans-serif;
+        font-weight: 400;
+        font-size: 60px;
+        text-align: center;
+        line-height: 85px;
+        transition: all 5s;
+        transform: translateY(20%);
+      }
+
+      .section-about {
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        text-align: center;
+        font-family: "Lato", sans-serif;
+        margin-bottom: 200px;
+      }
+
+      .section-title {
+        margin-top: 100px;
+        font-size: 50px;
+        transform: translateY(30%);
+        transition: all 4s;
+        font-weight: normal;
+      }
+
+      .section-desc {
+        letter-spacing: 2px;
+        transform: translateY(50%);
+        transition: all 7s;
+        font-weight: 100;
+      }
+
+      .home-section-about-1 {
+        font-family: "Lato", sans-serif;
+        margin-left: 70%;
+        width: 30%;
+        margin-bottom: 200px;
+        letter-spacing: 1px;
+        text-align: center;
+        transform: translateX(20%);
+        transition: all 3s;
+      }
+
+      .home-section-about-1-title {
+        font-size: 40px;
+        font-weight: 500;
+      }
+
+      .home-section-about-1-desc {
+        line-height: 30px;
+        font-weight: 100;
+      }
+
+      .home-section-about-2 {
+        font-family: "Lato", sans-serif;
+        width: 30%;
+        letter-spacing: 1px;
+        text-align: center;
+        transform: translateX(-20%);
+        transition: all 3s;
+      }
+
+      .home-section-about-2-title {
+        font-size: 40px;
+        font-weight: 500;
+      }
+
+      .home-section-about-2-desc {
+        line-height: 30px;
+        font-weight: 100;
+      }
+
+      .footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 400px;
+        width: 100%;
+        background-color: rgba(51, 51, 51, 0.8);
+        font-family: "Lato", sans-serif;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .footer-container {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .footer-title {
+        text-align: center;
+        font-size: 55px;
+        font-weight: 600;
+      }
+
+      .footer-desc {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .footer-menu {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+        gap: 5px;
+      }
+
+      .footer-directs {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+      }
+
+      .footer-direct-old {
+        display: flex;
+        place-items: center;
+      }
+
+      .fincount-old {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: underline;
+      }
+
+      .footer-menu-link {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: underline;
+      }
+
+      .menu-icon {
+        display: none;
+      }
+
+      @media screen and (max-width: 885px) {
+        .navbar {
+          box-shadow: none;
+          justify-content: space-between;
+        }
+
+        .menu-icon {
+          display: flex;
+        }
+
+        .menu {
+          position: absolute;
+          height: 0;
+          top: 100px;
+          left: 70px;
+          background-color: rgba(51, 51, 51, 0.8);
+          display: none;
+          width: 100%;
+          transition: 1s;
+          line-height: 50px;
+          align-content: center;
+          flex-direction: column;
+          font-size: 20px;
+          text-align: start;
+          opacity: 0;
+        }
+
+        .menu.active {
+          display: flex;
+          opacity: 1;
+        }
+
+        .menu-link {
+          margin-bottom: 5px;
+        }
+
+        .menu-links {
+          opacity: 0;
+          transform: translateY(-100%);
+          transition: all 800ms;
+          width: 100%;
+          height: 500px;
+          background-color: #333333cc;
+          position: fixed;
+          top: 60px;
+          z-index: 998;
+          -webkit-backdrop-filter: blur(20px) saturate(180%);
+          backdrop-filter: blur(20px) saturate(180%);
+        }
+
+        .menu-links.active {
+          opacity: 1;
+          transform: translateY(0%);
+        }
+
+        .home-section-about-1 {
+          text-align: end;
+          margin-left: 30%;
+          width: 70%;
+        }
+
+        .home-section-about-2 {
+          text-align: end;
+          width: 70%;
+          margin-left: 30%;
+          transform: translateX(20%);
+          transition: all 4s;
+          margin-bottom: 200px;
+        }
+
+        .section {
+          overflow-x: hidden;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .home-section-about-1-desc,
+        .home-section-about-2-desc {
+          line-height: 25px;
+        }
+
+        .fincount-logo {
+          font-size: 35px;
+        }
+      }
+
+      @media screen and (max-width: 455px) {
+        .footer {
+          height: 450px;
+        }
+      }
+
+      @media screen and (max-width: 410px) {
+        .home-section-about-1,
+        .home-section-about-2 {
+          margin-bottom: 100px;
+        }
+
+        .home-title {
+          font-size: 45px;
+          line-height: 60px;
+        }
+
+        .section-title {
+          font-size: 35px;
+        }
+
+        .icons {
+          gap: 10px;
+          margin-right: -10px;
+        }
+      }
+
+      /* <--------Animations---------> */
+
+      .hidden {
+        opacity: 0;
+      }
+
+      .show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <h1 class="fincount-logo">Fincount</h1>
+
+        <ul class="menu">
+          <li class="menu-link">
+            <a class="menu-link active" href="index.html">Главная страница</a>
+          </li>
+          <li class="menu-link">
+            <a class="menu-link" href="UZabout.html">О нас</a>
+          </li>
+          <li class="menu-link">
+            <a class="menu-link" href="UZservices.html">Услуги</a>
+          </li>
+          <li class="menu-link">
+            <a class="menu-link" href="UZprices.html">Цены</a>
+          </li>
+          <li class="menu-link">
+            <a class="menu-link" href="UZcontact.html">Связь</a>
+          </li>
+        </ul>
+        <div class="icons">
+          <label class="menu-icon">
+            <i class="fa-regular fa-equals"></i>
+          </label>
+          <label class="translate-menu-icon">
+            <i class="fa-solid fa-language"></i>
+            <ul class="translate-menu">
+              <li class="translate-link">
+                <a href="index.html" class="translate-link">Uzbekistan</a>
+              </li>
+              <li class="translate-link active">
+                <a href="RUhome.html" class="translate-link">Russia</a>
+              </li>
+              <li class="translate-link">
+                <a href="ENGhome.html" class="translate-link">English</a>
+              </li>
+            </ul>
+          </label>
+        </div>
+      </div>
+    </nav>
+    <div class="menu-links"></div>
+    <div class="blur">
+      <header class="header">
+        <h1 class="home-title hidden">Добро пожаловать в Fincount!</h1>
+      </header>
+
+      <section class="section">
+        <div class="container-90">
+          <div class="section-about">
+            <h1 class="section-title hidden">СЛУЖБА СПЕЦИАЛИСТОВ</h1>
+            <p class="section-desc hidden">
+              АУТСОРСИНГ БУХГАЛТЕРСКОГО УЧЕТА И БУХГАЛТЕРСКОГО УЧЕТА НЕКОТОРЫЕ
+              ПРЕИМУЩЕСТВА ИСПОЛЬЗОВАНИЯ:
+            </p>
+          </div>
+          <div class="home-section">
+            <div class="home-section-about-1 hidden">
+              <div class="home-section-about-1-title">Экономия затрат</div>
+              <div class="home-section-about-1-desc">
+                Аутсорсинг настолько квалифицирован, насколько вам нужно
+                позволяет купить время экспертов и все только с одним от
+                бухгалтера до главного бухгалтера в зависимости от необходимости
+                сколько навыков у него будет. Это зависит от вас имеет полностью
+                укомплектованную бухгалтерию позволяет быть.
+              </div>
+            </div>
+            <div class="home-section-about-2 hidden">
+              <div class="home-section-about-2-title">
+                Сосредоточьтесь на своем основном бизнесе
+              </div>
+              <div class="home-section-about-2-desc">
+                Сосредоточьтесь на продажах и управлении своим бизнесом
+                увеличивает продажи и прибыль в долгосрочной перспективе. При
+                этом мы возвращаем вам ваше время, чтобы помочь вам.
+              </div>
+            </div>
+            <div class="home-section-about-1 hidden">
+              <div class="home-section-about-1-title">
+                Непрерывность обслуживания
+              </div>
+              <div class="home-section-about-1-desc">
+                Аутсорсинг также обеспечивает непрерывность обслуживания
+                обеспечивает, что немаловажно в малом бизнесе, здесь полагается
+                на одного работающего человека: вашего бухгалтера.
+              </div>
+            </div>
+            <div class="home-section-about-2 hidden">
+              <div class="home-section-about-2-title">Совет</div>
+              <div class="home-section-about-2-desc">
+                В Fincount Accounting работает только квалифицированный и
+                знающий персонал и компания даст вам бесценный совет принадлежат
+                и управляются квалифицированными специалистами.
+              </div>
+            </div>
+            <div class="home-section-about-1 hidden">
+              <div class="home-section-about-1-title">Знание</div>
+              <div class="home-section-about-1-desc">
+                Знание - сила, и твой палец - твое дело Взгляд в будущее вашей
+                компании позволяет принимать рациональные решения. мы ваш бизнес
+                в режиме реального времени, что позволяет принимать обоснованные
+                решения предоставлять управленческую и финансовую отчетность,
+                близкую к режиму мы будем
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">
+        <div class="footer-container">
+          <h1 class="footer-title">Fincount</h1>
+
+          <div class="footer-directs">
+            <div class="footer-direct-new">
+              <h1 class="footer-direct">Прямые ссылки:</h1>
+              <div class="footer-menu">
+                <a class="footer-menu-link" href="RUhome.html"
+                  >Главная страница</a
+                >
+                <a class="footer-menu-link" href="RUabout.html">О нас</a>
+                <a class="footer-menu-link" href="RUservices.html">Услуги</a>
+                <a class="footer-menu-link" href="RUprices.html">Цены</a>
+                <a class="footer-menu-link" href="RUcontact.html">Связь</a>
+              </div>
+            </div>
+            <div class="footer-direct-old">
+              <p class="footer-direct-old-title">
+                Хотите посетить наш старый сайт? В этом нажмите на это:
+                <a class="fincount-old" href="FINCOUNT (with HTML)/index.html"
+                  >Fincount</a
+                >
+              </p>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Designed by <span style="font-weight: 600">Usmon</span> for
+            <span style="font-weight: 600">Umar Ollaberganov</span>
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

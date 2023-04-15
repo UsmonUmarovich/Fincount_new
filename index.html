@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/caffedb555.js" crossorigin="anonymous"></script>
-    <title>Fincount</title>
+    <script
+      src="https://kit.fontawesome.com/caffedb555.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Fincountga Xush Kelibsiz</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
       @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
@@ -19,6 +22,15 @@
         user-select: none;
       }
 
+      body {
+        overflow-x: hidden;
+      }
+
+      .blur.active {
+        transition: all 800ms;
+        filter: blur(5px);
+      }
+
       .container-90 {
         width: 90%;
         margin: 0 auto;
@@ -29,49 +41,37 @@
         margin: 0 auto;
       }
 
-      .container-75 {
-        width: 75%;
-        margin: 0 auto;
-      }
-
-      body {
-        background-color: rgba(22, 22, 23, 0.8);
-      }
-
       .navbar {
         width: 100%;
         height: 60px;
         background-color: rgba(51, 51, 51, 0.8);
         color: rgba(255, 255, 255, 0.8);
-        display: flex;
-        flex-direction: row;
         font-family: "Lato", sans-serif;
         font-weight: 300;
-        gap: 100px;
-        text-align: center;
-        align-items: center;
+        box-shadow: 0px 3px 30px black;
+        /* Sticky navbar start */
         position: fixed;
         top: 0;
         z-index: 999;
+        /* Sticky navbar end */
+
+        /* Like glass navbar start*/
         -webkit-backdrop-filter: blur(20px) saturate(180%);
         backdrop-filter: blur(20px) saturate(180%);
-        box-shadow: 0px 3px 30px black;
+        /* Like glass navbar end*/
       }
-
-      @supports (
-        (-webkit-backdrop-filter: saturate(180%) blur(20px)) or
-          (backdrop-filter: saturate(180%) blur(20px))
-      ) {
-        .navbar {
-          background-color: rgba(51, 51, 51, 0.8);
-          backdrop-filter: blur(20px) saturate(180%);
-        }
+      
+      .navbar-container{
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
       }
 
       .menu {
         display: flex;
         flex-direction: row;
-        gap: 30px;
+        gap: 40px;
+        /* justify-content: space-between; */
       }
 
       .menu-link {
@@ -83,6 +83,20 @@
         color: rgb(255, 255, 255);
       }
 
+      .menu-link.active {
+        text-decoration: underline;
+      }
+
+      .menu-icon {
+        font-size: 30px;
+      }
+
+      .icons {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+
       .translate-menu {
         display: flex;
         flex-direction: row;
@@ -90,7 +104,7 @@
         position: absolute;
         display: none;
         flex-direction: column;
-        background-color: rgba(22, 22, 23, 0.8);
+        background-color: rgba(51, 51, 51, 0.8);
         transition: all 0.5s;
       }
 
@@ -99,10 +113,10 @@
         cursor: pointer;
         transition: all 0.5s;
         color: rgba(255, 255, 255, 0.8);
-
+        margin-right: 60px;
       }
 
-      .translate-menu-icon:hover > .translate-menu{
+      .translate-menu-icon.active > .translate-menu {
         display: flex;
         color: #fff;
       }
@@ -118,11 +132,14 @@
         color: rgb(255, 255, 255);
       }
 
+      .translate-link.active {
+        text-decoration: underline;
+      }
+
       .fincount-logo {
-        width: 200px;
+        margin-left: 40px;
         font-size: 40px;
         cursor: pointer;
-        margin-left: 100px;
       }
 
       header {
@@ -138,7 +155,6 @@
 
       .section {
         background-color: #fff;
-        height: 260vh;
       }
 
       .home-title {
@@ -148,17 +164,8 @@
         font-size: 60px;
         text-align: center;
         line-height: 85px;
-      }
-
-      .hidden {
-        opacity: 0;
-        transition: all 3s;
-        transform: translateY(10%);
-      }
-
-      .show {
-        opacity: 1;
-        transform: translateY(0);
+        transition: all 5s;
+        transform: translateY(20%);
       }
 
       .section-about {
@@ -166,13 +173,21 @@
         flex-direction: column;
         place-items: center;
         text-align: center;
-        margin-top: 100px;
         font-family: "Lato", sans-serif;
         margin-bottom: 200px;
       }
 
       .section-title {
+        margin-top: 100px;
         font-size: 50px;
+        transform: translateY(30%);
+        transition: all 4s;
+      }
+
+      .section-desc {
+        letter-spacing: 2px;
+        transform: translateY(50%);
+        transition: all 7s;
       }
 
       .home-section-about-1 {
@@ -182,6 +197,8 @@
         margin-bottom: 200px;
         letter-spacing: 1px;
         text-align: center;
+        transform: translateX(20%);
+        transition: all 3s;
       }
 
       .home-section-about-1-title {
@@ -198,6 +215,8 @@
         width: 30%;
         letter-spacing: 1px;
         text-align: center;
+        transform: translateX(-20%);
+        transition: all 3s;
       }
 
       .home-section-about-2-title {
@@ -210,11 +229,23 @@
       }
 
       .footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         height: 400px;
         width: 100%;
         background-color: rgba(51, 51, 51, 0.8);
         font-family: "Lato", sans-serif;
         color: rgba(255, 255, 255, 0.8);
+      }
+
+      .footer-container{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
 
       .footer-title {
@@ -256,182 +287,281 @@
         text-decoration: underline;
       }
 
-      @media screen and (max-width: 1290px) {
+      .menu-icon {
+        display: none;
+      }
+
+      @media screen and (max-width: 885px) {
+        .navbar {
+          box-shadow: none;
+          justify-content: space-between;
+        }
+
+        .menu-icon {
+          display: flex;
+        }
+
+        .menu {
+          position: absolute;
+          height: 0;
+          top: 100px;
+          left: 70px;
+          background-color: rgba(51, 51, 51, 0.8);
+          display: none;
+          width: 100%;
+          transition: 1s;
+          line-height: 50px;
+          align-content: center;
+          flex-direction: column;
+          font-size: 20px;
+          text-align: start;
+          opacity: 0;
+        }
+
+        .menu.active {
+          display: flex;
+          opacity: 1;
+        }
+
+        .menu-link {
+          margin-bottom: 5px;
+        }
+
+        .menu-links {
+          opacity: 0;
+          transform: translateY(-100%);
+          transition: all 800ms;
+          width: 100%;
+          height: 500px;
+          background-color: #333333cc;
+          position: fixed;
+          top: 60px;
+          z-index: 998;
+          -webkit-backdrop-filter: blur(20px) saturate(180%);
+          backdrop-filter: blur(20px) saturate(180%);
+        }
+
+        .menu-links.active {
+          opacity: 1;
+          transform: translateY(0%);
+        }
+
+        .home-section-about-1 {
+          text-align: end;
+          margin-left: 30%;
+          width: 70%;
+        }
+
+        .home-section-about-2 {
+          text-align: end;
+          width: 70%;
+          margin-left: 30%;
+          transform: translateX(20%);
+          transition: all 4s;
+          margin-bottom: 200px;
+        }
+
         .section {
-          height: 270vh;
+          overflow-x: hidden;
         }
       }
 
-      @media screen and (max-width: 1240px) {
-        .navbar {
-          gap: 100px;
+      @media screen and (max-width: 480px) {
+        .home-section-about-1-desc,
+        .home-section-about-2-desc {
+          line-height: 25px;
+        }
+
+        .fincount-logo {
+          font-size: 35px;
         }
       }
 
-      @media screen and (max-width: 1150px) {
-        .navbar {
-          gap: 80px;
+      @media screen and (max-width: 455px) {
+        .footer {
+          height: 450px;
         }
       }
 
-      @media screen and (max-width: 1130px) {
-        .section {
-          height: 280vh;
+      @media screen and (max-width: 410px) {
+
+        .home-section-about-1,
+        .home-section-about-2 {
+          margin-bottom: 100px;
+        }
+
+        .home-title {
+          font-size: 45px;
+          line-height: 60px;
+        }
+
+        .section-title {
+          font-size: 35px;
+        }
+
+        .icons{
+          gap: 10px;
+          margin-right: -10px;
         }
       }
 
-      @media screen and (max-width: 1110px) {
-        .navbar {
-          gap: 70px;
-        }
+      /* <--------Animations---------> */
+
+      .hidden {
+        opacity: 0;
       }
 
-      @media screen and (max-width: 1080px) {
-        .section {
-          height: 300vh;
-        }
-
-        .navbar {
-          gap: 50px;
-        }
+      .show {
+        opacity: 1;
+        transform: translateY(0);
       }
     </style>
   </head>
   <body>
     <nav class="navbar">
-      <h1 class="fincount-logo">Fincount</h1>
-      <ul class="menu">
-        <li class="menu-link">
-          <a class="menu-link" href="index.html">Bosh Sahifa</a>
-        </li>
-        <li class="menu-link">
-          <a class="menu-link" href="UZabout.html">Haqida</a>
-        </li>
-        <li class="menu-link">
-          <a class="menu-link" href="UZservices.html">Xizmat</a>
-        </li>
-        <li class="menu-link">
-          <a class="menu-link" href="UZprices.html">Narxlar</a>
-        </li>
-        <li class="menu-link">
-          <a class="menu-link" href="UZcontact.html">Bog'lanish</a>
-        </li>
-      </ul>
-      <label class="translate-menu-icon">
-        <i class="fa-solid fa-language"></i>
-        <ul class="translate-menu">
-          <li class="translate-link">
-            <a href="index.html" class="translate-link">Uzbekistan</a>
+      <div class="navbar-container">
+        <h1 class="fincount-logo">Fincount</h1>
+
+        <ul class="menu">
+          <li class="menu-link">
+            <a class="menu-link active" href="index.html">Bosh Sahifa</a>
           </li>
-          <li class="translate-link">
-            <a href="RUhome.html" class="translate-link">Russia</a>
+          <li class="menu-link">
+            <a class="menu-link" href="UZabout.html">Haqida</a>
           </li>
-          <li class="translate-link">
-            <a href="ENGhome.html" class="translate-link">English</a>
+          <li class="menu-link">
+            <a class="menu-link" href="UZservices.html">Xizmat</a>
+          </li>
+          <li class="menu-link">
+            <a class="menu-link" href="UZprices.html">Narxlar</a>
+          </li>
+          <li class="menu-link">
+            <a class="menu-link" href="UZcontact.html">Bog'lanish</a>
           </li>
         </ul>
-      </label>
-    </nav>
-    <header class="header">
-      <h1 class="home-title hidden">
-        Fincountga <br />
-        Xush Kelibsiz!
-      </h1>
-    </header>
-
-    <section class="section">
-      <div class="container-90">
-        <div class="section-about hidden">
-          <h1 class="section-title">MUTAXASSISLAR XIZMATI</h1>
-          <p class="section-desc">
-            BUXGALTERIYA HISOBI VA BUXGALTERIYA HISOBINI AUTSORSING
-            FOYDALANISHNING BA'ZI FOYDALARI:
-          </p>
-        </div>
-        <div class="home-section">
-          <div class="home-section-about-1 hidden">
-            <div class="home-section-about-1-title">Xarajatlarni Saqlang</div>
-            <div class="home-section-about-1-desc">
-              Autsorsing sizga kerak bo'lganda turli darajadagi malakali
-              mutaxassislarning vaqtini sotib olish imkonini beradi va shu bilan
-              faqat ehtiyoj asosida buxgalterdan usta buxgaltergacha bir nechta
-              ko'nikmalarga ega bo'ladi. Bu sizning ixtiyoringizda to'liq
-              xodimlar bilan jihozlangan buxgalteriya bo'limiga ega bo'lish
-              imkonini beradi.
-            </div>
-          </div>
-          <div class="home-section-about-2 hidden">
-            <div class="home-section-about-2-title">
-              Asosiy Biznesingizga E'tibor bering
-            </div>
-            <div class="home-section-about-2-desc">
-              Sizning biznesingizni sotish va boshqarishga e'tibor qaratish uzoq
-              muddatda savdo va foydani oshiradi. Buni amalga oshirishda sizga
-              yordam berish uchun vaqtingizni qaytarib beramiz.
-            </div>
-          </div>
-          <div class="home-section-about-1 hidden">
-            <div class="home-section-about-1-title">Xizmat Davomiyligi</div>
-            <div class="home-section-about-1-desc">
-              Autsorsing shuningdek, xizmat ko'rsatishning uzluksizligini
-              ta'minlaydi, bu kichik biznesda muhim ahamiyatga ega, bu erda bir
-              kishining ishlashiga tayanadi: sizning buxgalteringiz.
-            </div>
-          </div>
-          <div class="home-section-about-2 hidden">
-            <div class="home-section-about-2-title">Maslahat</div>
-            <div class="home-section-about-2-desc">
-              Fincount Accounting faqat malakali va bilimli xodimlarni ish bilan
-              ta'minlaydi va kompaniya sizga bebaho maslahatlar bera oladigan
-              malakali mutaxassislarga tegishli va boshqariladi.
-            </div>
-          </div>
-          <div class="home-section-about-1 hidden">
-            <div class="home-section-about-1-title">Bilim</div>
-            <div class="home-section-about-1-desc">
-              Bilim - bu kuch va barmog'ingiz sizning biznesingizning zarbasiga
-              ega bo'lish sizning kompaniyangiz kelajagi bo'yicha oqilona
-              qarorlar qabul qilish imkonini beradi. Biz sizga biznes
-              qarorlarini asosli qabul qilish imkonini beruvchi real vaqt
-              rejimiga yaqin boshqaruv va moliyaviy hisobotlarni taqdim etamiz.
-            </div>
-          </div>
+        <div class="icons">
+          <label class="menu-icon">
+            <i class="fa-regular fa-equals"></i>
+          </label>
+          <label class="translate-menu-icon">
+            <i class="fa-solid fa-language"></i>
+            <ul class="translate-menu">
+              <li class="translate-link active">
+                <a href="index.html" class="translate-link">Uzbekistan</a>
+              </li>
+              <li class="translate-link">
+                <a href="RUhome.html" class="translate-link">Russia</a>
+              </li>
+              <li class="translate-link">
+                <a href="ENGhome.html" class="translate-link">English</a>
+              </li>
+            </ul>
+          </label>
         </div>
       </div>
-    </section>
-    <footer class="footer">
-      <div class="container-75">
-        <h1 class="footer-title">Fincount</h1>
+    </nav>
+    <div class="menu-links"></div>
+    <div class="blur">
+      <header class="header">
+        <h1 class="home-title hidden">
+          Fincountga <br />
+          Xush Kelibsiz!
+        </h1>
+      </header>
 
-        <div class="footer-directs">
-          <div class="footer-direct-new">
-            <h1 class="footer-direct">To'g'ridan-to'g'ri linklar:</h1>
-            <div class="footer-menu">
-              <a class="footer-menu-link" href="index.html">Bosh Sahifa</a>
-              <a class="footer-menu-link" href="UZabout.html">Haqida</a>
-              <a class="footer-menu-link" href="UZservices.html">Xizmatlar</a>
-              <a class="footer-menu-link" href="UZprices.html">Narxlar</a>
-              <a class="footer-menu-link" href="UZcontact.html">Bog'lanish</a>
-            </div>
-          </div>
-          <div class="footer-direct-old">
-            <p class="footer-direct-old-title">
-              Bizning eski web-saytimizga tashrif buyurishni hohlaysizmi? Unda
-              buni ustiga bosing:
-              <a class="fincount-old" href="FINCOUNT (with HTML)/index.html"
-                >Fincount</a
-              >.  Agar Eski web-saytizdan yana yangi web-saytimizga kirmoqchi
-              bo'lsangiz eng pastga tushib "Fincount Yangi"ni ustiga bosishingiz
-              kifoya!
+      <section class="section">
+        <div class="container-90">
+          <div class="section-about">
+            <h1 class="section-title hidden">MUTAXASSISLAR XIZMATI</h1>
+            <p class="section-desc hidden">
+              BUXGALTERIYA HISOBI VA BUXGALTERIYA HISOBINI AUTSORSING
+              FOYDALANISHNING BA'ZI FOYDALARI:
             </p>
           </div>
+          <div class="home-section">
+            <div class="home-section-about-1 hidden">
+              <div class="home-section-about-1-title">Xarajatlarni Saqlang</div>
+              <div class="home-section-about-1-desc">
+                Autsorsing sizga kerak bo'lganda turli darajadagi malakali
+                mutaxassislarning vaqtini sotib olish imkonini beradi va shu
+                bilan faqat ehtiyoj asosida buxgalterdan usta buxgaltergacha bir
+                nechta ko'nikmalarga ega bo'ladi. Bu sizning ixtiyoringizda
+                to'liq xodimlar bilan jihozlangan buxgalteriya bo'limiga ega
+                bo'lish imkonini beradi.
+              </div>
+            </div>
+            <div class="home-section-about-2 hidden">
+              <div class="home-section-about-2-title">
+                Asosiy Biznesingizga E'tibor bering
+              </div>
+              <div class="home-section-about-2-desc">
+                Sizning biznesingizni sotish va boshqarishga e'tibor qaratish
+                uzoq muddatda savdo va foydani oshiradi. Buni amalga oshirishda
+                sizga yordam berish uchun vaqtingizni qaytarib beramiz.
+              </div>
+            </div>
+            <div class="home-section-about-1 hidden">
+              <div class="home-section-about-1-title">Xizmat Davomiyligi</div>
+              <div class="home-section-about-1-desc">
+                Autsorsing shuningdek, xizmat ko'rsatishning uzluksizligini
+                ta'minlaydi, bu kichik biznesda muhim ahamiyatga ega, bu erda
+                bir kishining ishlashiga tayanadi: sizning buxgalteringiz.
+              </div>
+            </div>
+            <div class="home-section-about-2 hidden">
+              <div class="home-section-about-2-title">Maslahat</div>
+              <div class="home-section-about-2-desc">
+                Fincount Accounting faqat malakali va bilimli xodimlarni ish
+                bilan ta'minlaydi va kompaniya sizga bebaho maslahatlar bera
+                oladigan malakali mutaxassislarga tegishli va boshqariladi.
+              </div>
+            </div>
+            <div class="home-section-about-1 hidden">
+              <div class="home-section-about-1-title">Bilim</div>
+              <div class="home-section-about-1-desc">
+                Bilim - bu kuch va barmog'ingiz sizning biznesingizning
+                zarbasiga ega bo'lish sizning kompaniyangiz kelajagi bo'yicha
+                oqilona qarorlar qabul qilish imkonini beradi. Biz sizga biznes
+                qarorlarini asosli qabul qilish imkonini beruvchi real vaqt
+                rejimiga yaqin boshqaruv va moliyaviy hisobotlarni taqdim
+                etamiz.
+              </div>
+            </div>
+          </div>
         </div>
-        <p class="footer-desc">
-          Designed by <span style="font-weight: 600">Usmon</span> for
-          <span style="font-weight: 600">Umar Ollaberganov</span>
-        </p>
-      </div>
-    </footer>
+      </section>
+      <footer class="footer">
+        <div class="footer-container">
+          <h1 class="footer-title">Fincount</h1>
+
+          <div class="footer-directs">
+            <div class="footer-direct-new">
+              <h1 class="footer-direct">To'g'ridan-to'g'ri linklar:</h1>
+              <div class="footer-menu">
+                <a class="footer-menu-link" href="index.html">Bosh Sahifa</a>
+                <a class="footer-menu-link" href="UZabout.html">Haqida</a>
+                <a class="footer-menu-link" href="UZservices.html">Xizmatlar</a>
+                <a class="footer-menu-link" href="UZprices.html">Narxlar</a>
+                <a class="footer-menu-link" href="UZcontact.html">Bog'lanish</a>
+              </div>
+            </div>
+            <div class="footer-direct-old">
+              <p class="footer-direct-old-title">
+                Bizning eski web-saytimizga tashrif buyurishni hohlaysizmi? Unda
+                buni ustiga bosing:
+                <a class="fincount-old" href="FINCOUNT (with HTML)/index.html"
+                  >Fincount</a
+                >
+              </p>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Designed by <span style="font-weight: 600">Usmon</span> for
+            <span style="font-weight: 600">Umar Ollaberganov</span>
+          </p>
+        </div>
+      </footer>
+    </div>
 
     <script src="index.js"></script>
   </body>

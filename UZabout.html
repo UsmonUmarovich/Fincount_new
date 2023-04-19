@@ -15,7 +15,7 @@
 
       * {
         margin: 0;
-        padding: 0;
+        padding: 0; 
         box-sizing: border-box;
         list-style: none;
         text-decoration: none;
@@ -24,6 +24,7 @@
 
       body {
         overflow-x: hidden;
+        background-color: #000;
       }
 
       .blur.active {
@@ -135,6 +136,202 @@
       .menu-icon {
         display: none;
       }
+
+      header{
+        margin-top: 300px;
+        font-family: "Lato", sans-serif;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        color: rgb(255, 255, 255, 0.8);
+        height: 80vh;
+      }
+
+      .header-title{
+        text-align: center;
+        transition: all 5s;
+        transform: translateY(50%);
+        font-size: 70px;
+      }
+
+      .header-desc{
+        text-align: center;
+        transition: all 6s;
+        transform: translateY(50%);
+        width: 80%;
+        letter-spacing: 1px;
+        line-height: 25px;
+        margin: 0 auto;
+      }
+
+      .footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 400px;
+        width: 100%;
+        background-color: rgba(51, 51, 51, 0.8);
+        font-family: "Lato", sans-serif;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .footer-container{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .footer-title {
+        text-align: center;
+        font-size: 55px;
+        font-weight: 600;
+      }
+
+      .footer-desc {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .footer-menu {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+        gap: 5px;
+      }
+
+      .footer-directs {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+      }
+
+      .footer-direct-old {
+        display: flex;
+        place-items: center;
+      }
+
+      .fincount-old {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: underline;
+      }
+
+      .footer-menu-link {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: underline;
+      }
+
+      @media screen and (max-width: 885px) {
+        .navbar {
+          box-shadow: none;
+          justify-content: space-between;
+        }
+
+        .menu-icon {
+          display: flex;
+        }
+
+        .menu {
+          position: absolute;
+          height: 0;
+          top: 100px;
+          left: 70px;
+          background-color: rgba(51, 51, 51, 0.8);
+          display: none;
+          width: 100%;
+          transition: 1s;
+          line-height: 50px;
+          align-content: center;
+          flex-direction: column;
+          font-size: 20px;
+          text-align: start;
+          opacity: 0;
+        }
+
+        .menu.active {
+          display: flex;
+          opacity: 1;
+        }
+
+        .menu-link {
+          margin-bottom: 5px;
+        }
+
+        .menu-links {
+          opacity: 0;
+          transform: translateY(-100%);
+          transition: all 800ms;
+          width: 100%;
+          height: 500px;
+          background-color: #333333cc;
+          position: fixed;
+          top: 60px;
+          z-index: 998;
+          -webkit-backdrop-filter: blur(20px) saturate(180%);
+          backdrop-filter: blur(20px) saturate(180%);
+        }
+
+        .menu-links.active {
+          opacity: 1;
+          transform: translateY(0%);
+        }
+      }
+
+      @media screen and (max-width: 600px){
+        header{
+          margin-top: 200px;
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        .header-title{
+          font-size: 60px;
+        }
+
+        .header-desc{
+          font-size: 15px;
+          line-height: 20px;
+          text-align: start;
+        }
+      }
+
+      @media screen and (max-width: 450px) {
+        .header-title{
+          font-size: 50px;
+        }
+      }
+
+      @media screen and (max-width: 425px) {
+        .footer-directs{
+          gap: 20px;
+        }
+      }
+
+      @media screen and (max-width: 400px) {
+        .fincount-logo{
+          font-size: 30px;
+        }
+        .icons{
+          gap: 10px;
+        }
+
+        .footer-direct{
+          font-size: 25px;
+        }
+      }
+
+      /* <--------Animations---------> */
+
+      .hidden {
+        opacity: 0;
+      }
+
+      .show {
+        opacity: 1;
+        transform: translateY(0);
+      }
     </style>
   </head>
   <body>
@@ -181,7 +378,54 @@
       </div>
     </nav>
     <div class="menu-links"></div>
-    <div class="blur"></div>
+    <div class="blur">
+      <header class="header">
+          <h1 class="header-title hidden">Biz Haqimizda</h1>
+          <p class="header-desc hidden">
+            Fincount Accounting buxgalteriya hisobi va soliq xizmati provayderi
+            bo‘lib, muvaffaqiyatli biznesni boshqargan va amalga oshirgan
+            tajribali mutaxassislardan iborat biznes-maslahat tarmog‘iga kirish
+            imkoniga ega bo‘lib, ularning barchasi biznesingiz muvaffaqiyatida
+            sizga yordam berishga intiladi. Bizning mijozlarimiz buxgalteriya
+            hisobi, qonun hujjatlariga rioya qilish va moliyaviy menejment bilan
+            bog'liq xarajatlar o'z biznesining omon qolishi uchun juda muhim
+            ekanligini tushunadigan va tushunadigan va bu xarajatni "samarasiz
+            xarajat" emas, balki "investitsiya" sifatida ko'radigan mulkdorlar
+            tomonidan boshqariladigan korxonalardir. ”.
+          </p>
+      </header>
+      <footer class="footer">
+        <div class="footer-container">
+          <h1 class="footer-title">Fincount</h1>
+
+          <div class="footer-directs">
+            <div class="footer-direct-new">
+              <h1 class="footer-direct">To'g'ridan-to'g'ri linklar:</h1>
+              <div class="footer-menu">
+                <a class="footer-menu-link" href="index.html">Bosh Sahifa</a>
+                <a class="footer-menu-link" href="UZabout.html">Haqida</a>
+                <a class="footer-menu-link" href="UZservices.html">Xizmatlar</a>
+                <a class="footer-menu-link" href="UZprices.html">Narxlar</a>
+                <a class="footer-menu-link" href="UZcontact.html">Bog'lanish</a>
+              </div>
+            </div>
+            <div class="footer-direct-old">
+              <p class="footer-direct-old-title">
+                Bizning eski web-saytimizga tashrif buyurishni hohlaysizmi? Unda
+                buni ustiga bosing:
+                <a class="fincount-old" href="FINCOUNT (with HTML)/index.html"
+                  >Fincount</a
+                >
+              </p>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Designed by <span style="font-weight: 600">Usmon</span> for
+            <span style="font-weight: 600">Umar Ollaberganov</span>
+          </p>
+        </div>
+      </footer>
+    </div>
   </body>
   <script src="index.js"></script>
 </html>

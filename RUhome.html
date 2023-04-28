@@ -199,7 +199,6 @@
         margin-bottom: 200px;
         letter-spacing: 1px;
         text-align: center;
-        transform: translateX(20%);
         transition: all 3s;
       }
 
@@ -219,7 +218,6 @@
         width: 30%;
         letter-spacing: 1px;
         text-align: center;
-        transform: translateX(-20%);
         transition: all 3s;
       }
 
@@ -362,7 +360,6 @@
           text-align: end;
           width: 70%;
           margin-left: 30%;
-          transform: translateX(20%);
           transition: all 4s;
           margin-bottom: 200px;
         }
@@ -395,6 +392,11 @@
           margin-bottom: 100px;
         }
 
+        .home-section-about-1-title,
+        .home-section-about-2-title {
+          font-size: 25px;
+        }
+
         .home-title {
           font-size: 45px;
           line-height: 60px;
@@ -407,6 +409,12 @@
         .icons {
           gap: 10px;
           margin-right: -10px;
+        }
+      }
+
+      @media screen and (max-width: 315px) {
+        .section-title{
+          font-size: 30px;
         }
       }
 
